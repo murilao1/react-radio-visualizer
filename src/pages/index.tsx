@@ -1,4 +1,5 @@
 import { getAccessToken } from "@/api/authentication";
+import { getCurrentlyPlayingSong } from "@/api/currentlyPlaying";
 import { getUser } from "@/api/user";
 import HomeTemplate from "@/templates/home";
 import HomeTemplateProps from "@/templates/home/props";
@@ -11,11 +12,13 @@ const Home = (props: HomeTemplateProps) => {
 export const getStaticProps: GetStaticProps<HomeTemplateProps> = async () => {
   const { access_token } = await getAccessToken();
   const userData = await getUser();
+  const currentSong = await getCurrentlyPlayingSong();
 
   return {
     props: {
       access_token,
       userData,
+      currentSong,
     },
   };
 };

@@ -106,13 +106,6 @@ export default class MyDocument extends Document {
             type="font/woff2"
             crossOrigin=""
           />
-          <link
-            rel="preload"
-            href="/fonts/Chillax-Variable.eot"
-            as="font"
-            type="font/woff2"
-            crossOrigin=""
-          />
         </Head>
         <body>
           <Main />
