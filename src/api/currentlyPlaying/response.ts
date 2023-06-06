@@ -1,25 +1,4 @@
-interface Id {
-  name: string;
-  href: string;
-  id: string;
-  external_urls: {
-    spotify: string;
-  }
-}
-
-interface Image {
-  url: string;
-  width: number;
-  height: number;
-}
-
-interface Artist extends Id { }
-
-interface Album extends Id {
-  release_date: string;
-  artists: Artist[];
-  images: Image[]
-}
+import { Album, Artist, Id } from "@/api/types";
 
 interface Item extends Id {
   artists: Artist[]
