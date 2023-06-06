@@ -1,3 +1,3 @@
-export interface NavbarProps {
-  userImage: string
-}
+import UserResponse from "@/api/user/response";
+
+export interface NavbarProps extends UserResponse { }

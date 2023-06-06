@@ -10,12 +10,12 @@ const Home = (props: HomeTemplateProps) => {
 
 export const getStaticProps: GetStaticProps<HomeTemplateProps> = async () => {
   const { access_token } = await getAccessToken();
-  const { images } = await getUser();
+  const userData = await getUser();
 
   return {
     props: {
       access_token,
-      userImage: images[0].url,
+      userData,
     },
   };
 };

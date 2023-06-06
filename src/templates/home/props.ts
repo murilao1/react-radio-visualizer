@@ -1,4 +1,6 @@
+import UserResponse from "@/api/user/response";
+
 export default interface HomeTemplateProps {
   access_token: string;
-  userImage: string
+  userData: UserResponse
 }
