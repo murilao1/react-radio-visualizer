@@ -1,25 +1,13 @@
-import { getCurrentlyPlayingSong } from "@/api/currentlyPlaying";
-import CurrentlyPlayingResponse from "@/api/currentlyPlaying/response";
-import { getUser } from "@/api/user";
-import UserResponse from "@/api/user/response";
 import HomeTemplateProps from "@/templates/home/props";
-import { FC, useEffect, useState } from "react";
+import { FC } from "react";
+import * as S from "./styles";
+import Navbar from "@/components/Navbar";
 
-const HomeTemplate: FC<HomeTemplateProps> = ({ access_token }) => {
-  const [user, setUser] = useState<UserResponse>();
-
-  useEffect(() => {
-    getUser().then((user) => setUser(user));
-  }, []);
-
-  useEffect(() => {
-    console.log(user);
-  }, [user]);
-
+const HomeTemplate: FC<HomeTemplateProps> = ({ userImage }) => {
   return (
     <>
-      {access_token}
-      {user?.display_name}
+      <Navbar userImage={userImage} />
+      <S.Container></S.Container>
     </>
   );
 };
