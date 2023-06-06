@@ -1,23 +1,25 @@
 import { getCurrentlyPlayingSong } from "@/api/currentlyPlaying";
 import CurrentlyPlayingResponse from "@/api/currentlyPlaying/response";
+import { getUser } from "@/api/user";
+import UserResponse from "@/api/user/response";
 import HomeTemplateProps from "@/templates/home/props";
 import { FC, useEffect, useState } from "react";
 
 const HomeTemplate: FC<HomeTemplateProps> = ({ access_token }) => {
-  const [currentSong, setCurrentSong] = useState<CurrentlyPlayingResponse>();
+  const [user, setUser] = useState<UserResponse>();
 
   useEffect(() => {
-    getCurrentlyPlayingSong().then((data) => setCurrentSong(data));
+    getUser().then((user) => setUser(user));
   }, []);
 
   useEffect(() => {
-    console.log(currentSong);
-  }, [currentSong]);
+    console.log(user);
+  }, [user]);
 
   return (
     <>
       {access_token}
-      {currentSong?.item.name}
+      {user?.display_name}
     </>
   );
 };
