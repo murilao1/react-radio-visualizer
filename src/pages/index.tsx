@@ -4,11 +4,7 @@ import HomeTemplateProps from "@/templates/home/props";
 import { GetStaticProps } from "next";
 
 const Home = (props: HomeTemplateProps) => {
-  return (
-    <>
-      <HomeTemplate {...props} />
-    </>
-  );
+  return <HomeTemplate {...props} />;
 };
 
 export const getStaticProps: GetStaticProps<HomeTemplateProps> = async () => {
