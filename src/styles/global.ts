@@ -14,7 +14,7 @@ export default createGlobalStyle`
   }
 
   a {
-    color: ${props => props.theme.colors.background};
+    color: ${props => props.theme.colors.text};
     text-decoration: none;
   }
 `
