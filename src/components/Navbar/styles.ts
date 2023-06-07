@@ -1,3 +1,4 @@
+import CustomLink from "@/components/Link"
 import Image from "next/image"
 import { styled } from "styled-components"
 
@@ -18,14 +19,22 @@ export const Nav = styled.nav`
   }
 `
 
-export const UserImage = styled(Image)`
-  border-radius: 50%;
-
-  transition: filter .4s;
+export const Link = styled(CustomLink)`
+  display: flex;
+  
+  img {
+    transition: filter .4s;
+  }
 
   &:hover {
-    filter: brightness(120%);
+    img {
+      filter: brightness(125%);
+    }
   }
+`
+
+export const UserImage = styled(Image)`
+  border-radius: 50%;
 `
 
 export const UserName = styled.span`

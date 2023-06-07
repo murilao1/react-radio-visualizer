@@ -3,32 +3,34 @@ import { FC } from "react";
 import * as S from "./styles";
 import Navbar from "@/components/Navbar";
 import { HomeConst as C } from "./const";
-import Link from "next/link";
+import CustomLink from "@/components/Link";
 
 const HomeTemplate: FC<HomeTemplateProps> = ({ userData, currentSong }) => {
+  const {
+    is_playing,
+    item: { artists, external_urls, album, name },
+  } = currentSong;
+
   return (
     <>
       <Navbar {...userData} />
       <S.Container>
         <S.IsPlaying>{C.isPlaying}</S.IsPlaying>
-        {currentSong.is_playing && (
+        {is_playing && (
           <S.SongContainer>
-            <Link href={currentSong.item.external_urls.spotify} target="_blank">
+            <CustomLink href={external_urls.spotify}>
               <S.SongImage
-                src={currentSong.item.album.images[0].url}
+                src={album.images[0].url}
                 width={424}
                 height={424}
                 alt="Song image"
                 priority
               />
-              <S.SongName>{currentSong.item.name}</S.SongName>
-            </Link>
-            <Link
-              target="_blank"
-              href={currentSong.item.artists[0].external_urls.spotify}
-            >
-              <S.ArtistName>{currentSong.item.artists[0].name}</S.ArtistName>
-            </Link>
+              <S.SongName>{name}</S.SongName>
+            </CustomLink>
+            <CustomLink href={artists[0].external_urls.spotify}>
+              <S.ArtistName>{artists[0].name}</S.ArtistName>
+            </CustomLink>
           </S.SongContainer>
         )}
       </S.Container>

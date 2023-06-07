@@ -1,15 +1,10 @@
-import Link from "next/link";
 import * as S from "./styles";
 import { NavbarProps } from "@/components/Navbar/props";
 
 const Navbar = ({ display_name, external_urls, images }: NavbarProps) => {
   return (
     <S.Nav>
-      <Link
-        target="_blank"
-        href={external_urls.spotify}
-        style={{ display: "flex" }}
-      >
+      <S.Link href={external_urls.spotify}>
         <S.UserImage
           src={images[0].url}
           alt="User profile picture"
@@ -19,7 +14,7 @@ const Navbar = ({ display_name, external_urls, images }: NavbarProps) => {
           quality={100}
         />
         <S.UserName>{display_name}</S.UserName>
-      </Link>
+      </S.Link>
     </S.Nav>
   );
 };
