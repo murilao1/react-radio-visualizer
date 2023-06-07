@@ -2,7 +2,7 @@ import Image from "next/image";
 import styled from "styled-components";
 
 export const Container = styled.div`
-  min-height: 300vh;
+  min-height: 150vh;
   padding: 140px 370px;
 `
 
@@ -22,6 +22,11 @@ export const SongName = styled.p`
   font-size: 28px;
 `
 
-export const ArtistName = styled.p`
+export const ArtistName = styled.span`
   font-size: 18px;
+`
+export const NotPlaying = styled.p`
+  font-size: 28px;
+  font-weight: 300;
+  margin-top: 36px;
 `

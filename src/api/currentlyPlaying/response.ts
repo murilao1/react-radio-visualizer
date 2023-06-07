@@ -7,7 +7,7 @@ interface Item extends Id {
 
 export default interface CurrentlyPlayingResponse {
   is_playing: boolean;
-  item: Item;
+  item?: Item;
   duration_ms: string;
   progress_ms: number;
   timestamp: number;
