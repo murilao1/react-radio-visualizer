@@ -10,12 +10,27 @@ export default createGlobalStyle`
   body {
     background: ${props => props.theme.colors.background};
     color: ${props => props.theme.colors.text};
-    font: 400 16px 'Chillax-Variable', sans-serif;
+    font: 400 1.6rem 'Chillax-Variable', sans-serif;
   }
 
   a {
     color: ${props => props.theme.colors.text};
     text-decoration: none;
+  }
+
+  html {
+    font-size: calc(100vw / 1920 * 10);
+    -moz-text-size-adjust: none;
+    -ms-text-size-adjust: none;
+    -webkit-text-size-adjust: none;
+    
+    @media (max-width: 1024px) {
+      font-size: calc(100vw / 1024 * 10);
+    }
+
+    @media (max-width: 440px) {
+      font-size: calc(100vw / ${440} * 10);
+    }
   }
 
 
